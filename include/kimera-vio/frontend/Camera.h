@@ -21,6 +21,7 @@
 #include <Eigen/Core>
 #include <opencv2/core.hpp>
 #include <optional>
+#include <opencv2/viz.hpp>
 
 #include "kimera-vio/frontend/CameraParams.h"
 #include "kimera-vio/frontend/UndistorterRectifier.h"

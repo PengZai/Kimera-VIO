@@ -16,6 +16,7 @@
 #pragma once
 
 #include <opencv2/opencv.hpp>
+#include <opencv2/viz.hpp>
 
 #include <gtsam/geometry/Rot3.h>
 

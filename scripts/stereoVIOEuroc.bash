@@ -4,7 +4,8 @@
 
 # Specify path of the EuRoC dataset.
 # The path can be absolute, or relative to this file location.
-DATASET_PATH="/path/to/euroc/dataset"
+DATASET_PATH="/mnt/d/zhipeng/datasets/Euroc_MAV/euroc-spark/MH_03_medium"
+# DATASET_PATH="../datasets/EnvoData/MU-Hall/MU-Hall/mu-hall-seq-01"
 
 # Specify: 0 to run on EuRoC data, 1 to run on Kitti (not supported)
 DATASET_TYPE=0

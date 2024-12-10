@@ -20,6 +20,9 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+message("CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
+
+
 message(STATUS "==============================================================")
 message(STATUS "====================  Dependencies ===========================")
 
@@ -28,7 +31,16 @@ find_package(Glog 0.3.5 REQUIRED)
 find_package(GTSAM REQUIRED)
 find_package(GTSAM_UNSTABLE REQUIRED)
 find_package(opengv REQUIRED)
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED
+)
+
+message("===================pengzai==================")
+message(STATUS "OpenCV Include: ${OpenCV_INCLUDE_DIRS}")
+message(STATUS "OpenCV Libs: ${OpenCV_LIBRARIES}")
+message("===================pengzai==================")
+
+
+
 find_package(DBoW2 REQUIRED)
 if(NOT TARGET DBoW2::DBoW2)
   add_library(DBoW2::DBoW2 INTERFACE IMPORTED)
@@ -39,6 +51,8 @@ endif()
 find_package(KimeraRPGO REQUIRED)
 # Pangolin is optional
 find_package(Pangolin QUIET)
+
+
 
 include(VerifyGtsamConfig)
 option(KIMERA_VERIFY_GTSAM_CONFIG "Check that GTSAM was compiled with the right options" ON)

@@ -138,9 +138,12 @@ void FeatureDetector::featureDetection(Frame* cur_frame,
     cur_frame->versors_.reserve(new_nr_keypoints);
 
     // Incremental id assigned to new landmarks
+    // static LandmarkId lmk_id = 0;
+    // pengzai debug
     static LandmarkId lmk_id = 0;
     const CameraParams& cam_param = cur_frame->cam_param_;
     for (const KeypointCV& corner : corners) {
+      ++lmk_id;
       cur_frame->landmarks_.push_back(lmk_id);
       // New keypoint, so seen in a single (key)frame so far.
       cur_frame->landmarks_age_.push_back(1u);
@@ -148,7 +151,6 @@ void FeatureDetector::featureDetection(Frame* cur_frame,
       cur_frame->scores_.push_back(0.0);  // NOT IMPLEMENTED
       cur_frame->versors_.push_back(
           UndistorterRectifier::GetBearingVector(corner, cam_param, R));
-      ++lmk_id;
     }
     VLOG(10) << "featureExtraction: frame " << cur_frame->id_
              << ",  Nr tracked keypoints: " << prev_nr_keypoints

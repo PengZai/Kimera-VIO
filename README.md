@@ -1,3 +1,16 @@
+
+
+# run stereVIOEuroc
+./stereoVIOEuroc --dataset_type=0 --dataset_path=../dataset/Euroc_MAV/euroc-spark/V2_01_easy --initial_k=50 --final_k=10000 --params_folder_path=../params/Euroc --use_lcd=1 --vocabulary_path=../vocabulary/ORBvoc.yml --flagfile=../params/Euroc/flags/stereoVIOEuroc.flags --flagfile=../params/Euroc/flags/Mesher.flags --flagfile=../params/Euroc/flags/VioBackend.flags --flagfile=../params/Euroc/flags/RegularVioBackend.flags --flagfile=../params/Euroc/flags/Visualizer3D.flags --logtostderr=1 --colorlogtostderr=1 --log_prefix=1 --v=0 --vmodule=Pipeline*=00 --log_output=0 --log_euroc_gt_data=0 --save_frontend_images=1 --visualize_frontend_images=1 --output_path=../output_logs
+
+# build opencv
+
+cmake -DOPENCV_EXTRA_MODULES_PATH=/home/zhongzhipeng/vscode_projects/opencv_contrib/modules -DWITH_VTK=On ..
+
+# uninstall the package make install
+sudo xargs rm < install_manifest.txt
+
+=====================================================================================
 <div align="center">
   <a href="http://mit.edu/sparklab/">
     <img align="left" src="docs/media/sparklab_logo.png" width="80" alt="sparklab">

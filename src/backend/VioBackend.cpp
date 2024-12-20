@@ -753,6 +753,12 @@ void VioBackend::addStereoMeasurementsToFeatureTracks(
     // These landmark ids are only the ones visible in current keyframe,
     // with a valid track...
     // CHECK that we do not have repeated lmk ids!
+    // zhipeng command
+    // if(lmk_id_in_kf_i!=0){
+    //   DCHECK(std::find(landmarks_kf->begin(),
+    //                  landmarks_kf->end(),
+    //                  lmk_id_in_kf_i) == landmarks_kf->end());
+    // }
     DCHECK(std::find(landmarks_kf->begin(),
                      landmarks_kf->end(),
                      lmk_id_in_kf_i) == landmarks_kf->end());

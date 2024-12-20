@@ -760,6 +760,8 @@ void OpenCvVisualizer3D::drawSmartStereoFactor(
       smart_stereo_factor.cameras(state);
   const gtsam::KeyVector& stereo_cam_keys = smart_stereo_factor.keys();
   CHECK_EQ(stereo_cams.size(), stereo_cam_keys.size());
+  // static LandmarkId lmk_id = 0;
+  // // pengzai debug
   static LandmarkId lmk_id = 0;
   // Since I don't know the smart factor lmk id, I just invent it...
   lmk_id++;

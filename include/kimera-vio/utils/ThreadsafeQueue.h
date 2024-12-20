@@ -309,7 +309,7 @@ bool ThreadsafeQueue<T>::push(T new_value) {
 
 template <typename T>
 bool ThreadsafeQueue<T>::pushBlockingIfFull(T new_value,
-                                            size_t max_queue_size) {
+                                            size_t max_queue_size){
   if (shutdown_) return false;  // atomic, no lock needed.
   std::shared_ptr<T> data(std::make_shared<T>(std::move(new_value)));
   std::unique_lock<std::mutex> lk(mutex_);

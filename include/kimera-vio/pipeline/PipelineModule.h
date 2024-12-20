@@ -470,7 +470,7 @@ class MISOPipelineModule : public MIMOPipelineModule<Input, Output> {
   inline bool pushOutputPacket(
       typename MIMO::OutputUniquePtr output_packet) const override {
     return output_queue_ ? output_queue_->push(std::move(output_packet)) : true;
-  }
+  } // when output_queue_ is not null, execute output_queue_->push(std::move(output_packet)), and return true, otherwise, return true but not output_packet was push as the queue is empty
 
   //! Called when general shutdown of PipelineModule is triggered.
   void shutdownQueues() override {

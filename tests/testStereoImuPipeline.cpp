@@ -52,6 +52,7 @@ class VioPipelineFixture : public ::testing::Test {
 
   void buildOfflinePipeline(const VioParams& vio_params) {
     constexpr int initial_k = 10;
+    // constexpr int final_k = 80;
     constexpr int final_k = 80;
     // Needed in order to disconnect previous pipeline in case someone calls
     // this function repeatedly within the same test.
@@ -63,6 +64,13 @@ class VioPipelineFixture : public ::testing::Test {
         initial_k,
         final_k,
         vio_params);
+
+    // dataset_parser_ = std::make_unique<EurocDataProvider>(
+    //     FLAGS_test_data_path + "/V2_01_easy",
+    //     initial_k,
+    //     final_k,
+    //     vio_params);
+
     connectVioPipelineWithBlockingIfFullQueues();
   }
 
@@ -131,8 +139,8 @@ class VioPipelineFixture : public ::testing::Test {
 
  protected:
   DataProviderInterface::UniquePtr dataset_parser_;
-  StereoImuPipeline::UniquePtr vio_pipeline_;
   VioParams vio_params_;
+  StereoImuPipeline::UniquePtr vio_pipeline_;
 };
 
 TEST_F(VioPipelineFixture, OnlineSequentialStart) {

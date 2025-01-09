@@ -1751,6 +1751,9 @@ void VioBackend::updateNewSmartFactorsSlots(
         << "Trying to access unavailable factor.";
     // CHECK that the factor in the graph at slot position is a smart
     // factor.
+    // size_t getfactors_size = smoother_->getFactors().size();
+    // const gtsam::NonlinearFactorGraph& factorGraph = smoother_->getFactors();
+    // auto factorGraph2 = smoother_->getFactors().at(slot);
     const auto sptr = dynamic_cast<const SmartStereoFactor*>(
         smoother_->getFactors().at(slot).get());
     DCHECK(sptr);
@@ -1764,6 +1767,7 @@ void VioBackend::updateNewSmartFactorsSlots(
 
     // Update slot number in old_smart_factors_.
     it->second.second = slot;
+    
   }
 }
 
